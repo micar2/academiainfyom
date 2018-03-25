@@ -8,7 +8,7 @@ use App\Repositories\PostsRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
-use Mini\Model\Category;
+use App\Models\Categories;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
@@ -32,11 +32,9 @@ class PostsController extends AppBaseController
     {
         $this->postsRepository->pushCriteria(new RequestCriteria($request));
         $posts = $this->postsRepository->all();
-        $categories = Category::all();
-        return view('posts.index', [
-            'posts'=> $posts,
-            'categories'=> $categories,
-            ]);
+
+        return view('posts.index')
+            ->with('posts', $posts);
     }
 
     /**
@@ -46,7 +44,8 @@ class PostsController extends AppBaseController
      */
     public function create()
     {
-        return view('posts.create');
+        $categories = Categories::pluck('name', 'id');
+        return view('posts.create', ['categories'=> $categories]);
     }
 
     /**
@@ -97,14 +96,14 @@ class PostsController extends AppBaseController
     public function edit($id)
     {
         $posts = $this->postsRepository->findWithoutFail($id);
-
+        $categories = Categories::pluck('name', 'id');
         if (empty($posts)) {
             Flash::error('Posts not found');
 
             return redirect(route('posts.index'));
         }
 
-        return view('posts.edit')->with('posts', $posts);
+        return view('posts.edit', ['categories'=> $categories,'posts'=>$posts]);
     }
 
     /**
