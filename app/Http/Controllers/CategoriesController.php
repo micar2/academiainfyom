@@ -60,6 +60,10 @@ class CategoriesController extends AppBaseController
     public function store(CreateCategoriesRequest $request)
     {
         $input = $request->all();
+        $route = Categories::generateCategoryRoute($input);
+        $input['route']=$route;
+
+
 
         $categories = $this->categoriesRepository->create($input);
 

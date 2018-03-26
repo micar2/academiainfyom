@@ -22,7 +22,8 @@ class Categories extends Model
 
     public $fillable = [
         'name',
-        'category_id'
+        'category_id',
+        'route'
     ];
 
     /**
@@ -32,7 +33,8 @@ class Categories extends Model
      */
     protected $casts = [
         'name' => 'string',
-        'category_id' => 'integer'
+        'category_id' => 'integer',
+        'route'=>'string'
     ];
 
     /**
@@ -41,8 +43,27 @@ class Categories extends Model
      * @var array
      */
     public static $rules = [
-        'name' => 'required'
+        'name' => 'required',
+//        'route'=>'required'
     ];
+
+    public static function generateCategoryRoute($category)
+    {
+        $category = (object) $category;
+        $route='';
+        if ($category->category_id != 1){
+            $parentCategory = Categories::find($category->category_id);
+
+            while ($parentCategory->id != 1){
+                $route.=$parentCategory->name.'- ';
+                $parentCategory = Categories::find($parentCategory->category_id);
+            }
+            $route=trim($route, '- ');
+            return $route;
+        }
+
+    }
+
 
     
 }
