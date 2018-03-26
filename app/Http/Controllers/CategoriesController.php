@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateCategoriesRequest;
 use App\Http\Requests\UpdateCategoriesRequest;
+use App\Models\Categories;
 use App\Repositories\CategoriesRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
@@ -43,7 +44,10 @@ class CategoriesController extends AppBaseController
      */
     public function create()
     {
-        return view('categories.create');
+
+        $selectCategories = Categories::pluck('name', 'id');
+
+        return view('categories.create', ['selectCategories'=> $selectCategories]);
     }
 
     /**
@@ -94,14 +98,14 @@ class CategoriesController extends AppBaseController
     public function edit($id)
     {
         $categories = $this->categoriesRepository->findWithoutFail($id);
-
+        $selectCategories = Categories::pluck('name', 'id');
         if (empty($categories)) {
             Flash::error('Categories not found');
 
             return redirect(route('categories.index'));
         }
 
-        return view('categories.edit')->with('categories', $categories);
+        return view('categories.edit', ['selectCategories'=>$selectCategories, 'categories'=> $categories]);
     }
 
     /**
