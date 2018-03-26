@@ -7,7 +7,9 @@
 <!-- Category Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('category_id', 'Category Id:') !!}
+    {!! Form::select('category_id', array(
 
+    )) !!}
     {!! Form::text('category_id', null, ['class' => 'form-control']) !!}
 </div>
 
