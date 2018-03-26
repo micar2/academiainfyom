@@ -44,23 +44,22 @@ class Categories extends Model
      */
     public static $rules = [
         'name' => 'required',
-//        'route'=>'required'
     ];
 
     public static function generateCategoryRoute($category)
     {
         $category = (object) $category;
-        $route='';
-        if ($category->category_id != 1){
+        $route=$category->name.'-';
+
             $parentCategory = Categories::find($category->category_id);
 
             while ($parentCategory->id != 1){
-                $route.=$parentCategory->name.'- ';
+                $route.=$parentCategory->name.'-';
                 $parentCategory = Categories::find($parentCategory->category_id);
             }
-            $route=trim($route, '- ');
+            $route=trim($route, '-');
             return $route;
-        }
+
 
     }
 

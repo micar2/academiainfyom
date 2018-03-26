@@ -2,6 +2,7 @@
     <thead>
         <th>Name</th>
         <th>Parent Category</th>
+        <th>Route</th>
         <th colspan="3">Action</th>
     </thead>
     <tbody>
@@ -26,7 +27,7 @@
             @else
                 <td></td>
             @endif
-
+            <td>{!! $categories1->route !!}</td>
 
             <td>
                 {!! Form::open(['route' => ['categories.destroy', $categories1->id], 'method' => 'delete']) !!}

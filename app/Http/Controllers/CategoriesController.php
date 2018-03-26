@@ -45,7 +45,7 @@ class CategoriesController extends AppBaseController
     public function create()
     {
 
-        $selectCategories = Categories::pluck('name', 'id');
+        $selectCategories = Categories::pluck('route', 'id');
 
         return view('categories.create', ['selectCategories'=> $selectCategories]);
     }
@@ -102,7 +102,7 @@ class CategoriesController extends AppBaseController
     public function edit($id)
     {
         $categories = $this->categoriesRepository->findWithoutFail($id);
-        $selectCategories = Categories::pluck('name', 'id');
+        $selectCategories = Categories::pluck('route', 'id');
         if (empty($categories)) {
             Flash::error('Categories not found');
 
@@ -129,8 +129,10 @@ class CategoriesController extends AppBaseController
 
             return redirect(route('categories.index'));
         }
-
-        $categories = $this->categoriesRepository->update($request->all(), $id);
+        $request = $request->all();
+        $route = Categories::generateCategoryRoute($request);
+        $request['route']=$route;
+        $categories = $this->categoriesRepository->update($request, $id);
 
         Flash::success('Categories updated successfully.');
 
