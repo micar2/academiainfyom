@@ -11,7 +11,8 @@ class CategoriesRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
-        'nameComplete'
+        'name',
+        'category_id'
     ];
 
     /**

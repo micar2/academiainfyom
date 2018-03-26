@@ -4,10 +4,16 @@
     <p>{!! $categories->id !!}</p>
 </div>
 
-<!-- Namecomplete Field -->
+<!-- Name Field -->
 <div class="form-group">
-    {!! Form::label('nameComplete', 'Namecomplete:') !!}
-    <p>{!! $categories->nameComplete !!}</p>
+    {!! Form::label('name', 'Name:') !!}
+    <p>{!! $categories->name !!}</p>
+</div>
+
+<!-- Category Id Field -->
+<div class="form-group">
+    {!! Form::label('category_id', 'Category Id:') !!}
+    <p>{!! $categories->category_id !!}</p>
 </div>
 
 <!-- Created At Field -->

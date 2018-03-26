@@ -31,7 +31,3 @@ Route::resource('posts', 'PostsController');
 
 
 Route::resource('categories', 'CategoriesController');
-
-
-
-Route::resource('categories', 'CategoriesController');

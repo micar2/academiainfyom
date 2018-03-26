@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreatecategoriesTable extends Migration
+class CreateCategoriesTable extends Migration
 {
 
     /**
@@ -15,9 +15,11 @@ class CreatecategoriesTable extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nameComplete', 200);
+            $table->string('name', 20);
+            $table->integer('category_id')->default(1)->unsigned();
             $table->timestamps();
             $table->softDeletes();
+            $table->foreign('category_id')->references('id')->on('categories')->nullable();
         });
     }
 

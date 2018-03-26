@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class Categories
  * @package App\Models
- * @version March 26, 2018, 1:38 pm UTC
+ * @version March 20, 2018, 3:38 pm UTC
  */
 class Categories extends Model
 {
@@ -21,7 +21,8 @@ class Categories extends Model
 
 
     public $fillable = [
-        
+        'name',
+        'category_id'
     ];
 
     /**
@@ -30,7 +31,8 @@ class Categories extends Model
      * @var array
      */
     protected $casts = [
-        'nameComplete' => 'string'
+        'name' => 'string',
+        'category_id' => 'integer'
     ];
 
     /**
@@ -39,7 +41,7 @@ class Categories extends Model
      * @var array
      */
     public static $rules = [
-        'nameComplete' => 'required'
+        'name' => 'required'
     ];
 
     
