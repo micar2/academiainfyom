@@ -20,7 +20,6 @@ $factory->define(App\Models\Comentary::class, function (Faker\Generator $faker) 
         'content' => $faker->paragraph,
         'user_id' => function () { return factory(App\User::class)->create()->id; },
         'post_id' => function () { return factory(App\Models\Posts::class)->create()->id; },
-        'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
     ];
 });
