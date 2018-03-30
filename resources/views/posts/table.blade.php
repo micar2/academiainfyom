@@ -9,8 +9,12 @@
     <tbody>
     @foreach($posts as $posts)
         <tr>
-            <td>{!! $posts->tittle !!}</td>
-            <td>{!! $posts->category !!}</td>
+            <td>{!! $posts->title !!}</td>
+            @foreach($categories as $category)
+                @if($posts->category == $category->id)
+            <td>{!! $category->route !!}</td>
+                @endif
+            @endforeach
             <td>{!! $posts->content !!}</td>
             <td>{!! $posts->user_id !!}</td>
             <td>

@@ -32,9 +32,8 @@ class PostsController extends AppBaseController
     {
         $this->postsRepository->pushCriteria(new RequestCriteria($request));
         $posts = $this->postsRepository->all();
-
-        return view('posts.index')
-            ->with('posts', $posts);
+        $categories = Categories::all('id', 'route');
+        return view('posts.index',['posts'=> $posts, 'categories'=> $categories]);
     }
 
     /**
@@ -44,7 +43,7 @@ class PostsController extends AppBaseController
      */
     public function create()
     {
-        $categories = Categories::pluck('name', 'id');
+        $categories = Categories::pluck('route', 'id');
         return view('posts.create', ['categories'=> $categories]);
     }
 
@@ -83,7 +82,7 @@ class PostsController extends AppBaseController
             return redirect(route('posts.index'));
         }
 
-        return view('posts.show')->with('posts', $posts);
+        return view('posts.show',['posts'=> $posts]);
     }
 
     /**
@@ -96,7 +95,7 @@ class PostsController extends AppBaseController
     public function edit($id)
     {
         $posts = $this->postsRepository->findWithoutFail($id);
-        $categories = Categories::pluck('name', 'id');
+        $categories = Categories::pluck('route', 'id');
         if (empty($posts)) {
             Flash::error('Posts not found');
 

@@ -1,42 +1,42 @@
 <!-- Id Field -->
 <div class="form-group">
     {!! Form::label('id', 'Id:') !!}
-    <p>{!! $posts->id !!}</p>
+    <p>{!! $comentary->id !!}</p>
 </div>
 
-<!-- Tittle Field -->
+<!-- Name Field -->
 <div class="form-group">
-    {!! Form::label('title', 'Title:') !!}
-    <p>{!! $posts->title !!}</p>
+    {!! Form::label('name', 'Name:') !!}
+    <p>{!! $comentary->name !!}</p>
 </div>
 
-<!-- Category Field -->
+<!-- Post Id Field -->
 <div class="form-group">
-    {!! Form::label('category', 'Category:') !!}
-    <p>{!! $posts->category !!}</p>
+    {!! Form::label('post_id', 'Post Id:') !!}
+    <p>{!! $comentary->post_id !!}</p>
 </div>
 
 <!-- Content Field -->
 <div class="form-group">
     {!! Form::label('content', 'Content:') !!}
-    <p>{!! $posts->content !!}</p>
+    <p>{!! $comentary->content !!}</p>
 </div>
 
-<!-- User Id Field -->
+<!-- Post Id Field -->
 <div class="form-group">
-    {!! Form::label('user_id', 'User Id:') !!}
-    <p>{!! $posts->user_id !!}</p>
+    {!! Form::label('post_id', 'Post Id:') !!}
+    <p>{!! $comentary->post_id !!}</p>
 </div>
 
 <!-- Created At Field -->
 <div class="form-group">
     {!! Form::label('created_at', 'Created At:') !!}
-    <p>{!! $posts->created_at !!}</p>
+    <p>{!! $comentary->created_at !!}</p>
 </div>
 
 <!-- Updated At Field -->
 <div class="form-group">
     {!! Form::label('updated_at', 'Updated At:') !!}
-    <p>{!! $posts->updated_at !!}</p>
+    <p>{!! $comentary->updated_at !!}</p>
 </div>
 

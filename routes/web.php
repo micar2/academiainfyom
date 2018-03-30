@@ -31,3 +31,13 @@ Route::resource('posts', 'PostsController');
 
 
 Route::resource('categories', 'CategoriesController');
+
+Route::resource('lessons', 'LessonsController');
+
+Route::resource('subjects', 'SubjectController');
+
+Route::resource('comentaries', 'ComentaryController');
+
+Route::resource('documents', 'DocumentController');
+
+Route::resource('enrolments', 'EnrolmentController');

@@ -2,8 +2,8 @@
 
 <!-- Tittle Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('tittle', 'Tittle:') !!}
-    {!! Form::text('tittle', null, ['class' => 'form-control']) !!}
+    {!! Form::label('title', 'Title:') !!}
+    {!! Form::text('title', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Category Field -->

@@ -6,25 +6,24 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class Posts
+ * Class Comentary
  * @package App\Models
- * @version March 16, 2018, 7:38 pm UTC
+ * @version March 27, 2018, 11:14 am UTC
  */
-class Posts extends Model
+class Comentary extends Model
 {
     use SoftDeletes;
 
-    public $table = 'posts';
+    public $table = 'comentaries';
     
 
     protected $dates = ['deleted_at'];
 
 
     public $fillable = [
-        'title',
-        'category',
+        'name',
         'content',
-        'user_id'
+        'post_id'
     ];
 
     /**
@@ -33,10 +32,9 @@ class Posts extends Model
      * @var array
      */
     protected $casts = [
-        'title' => 'string',
-        'category' => 'string',
+        'name' => 'string',
         'content' => 'string',
-        'user_id' => 'integer'
+        'post_id' => 'integer'
     ];
 
     /**
@@ -45,9 +43,9 @@ class Posts extends Model
      * @var array
      */
     public static $rules = [
-        'title' => 'required',
+        'name' => 'required',
         'content' => 'required',
-        'user_id' => 'required'
+        'post_id' => 'required'
     ];
 
     
