@@ -15,13 +15,14 @@ class CreateDocumentsTable extends Migration
     {
         Schema::create('documents', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name', 40);
-            $table->string('tipe', 20);
-            $table->string('visibility', 20);
+            $table->string('name');
+            $table->string('type');
+            $table->string('visibility');
             $table->text('content');
             $table->integer('category')->unsigned();
             $table->integer('user')->unsigned();
             $table->timestamps();
+            $table->rememberToken();
             $table->softDeletes();
             $table->foreign('category')->references('id')->on('categories');
             $table->foreign('user')->references('id')->on('users');

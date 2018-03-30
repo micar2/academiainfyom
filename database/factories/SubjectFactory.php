@@ -1,5 +1,5 @@
 <?php
-use App\Models\Categories;
+
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -12,17 +12,20 @@ use App\Models\Categories;
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(Categories::class, function (Faker\Generator $faker) {
+
+use Illuminate\Support\Carbon;
+
+$factory->define(App\Models\Subject::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
         'name' => $faker->name,
-        'route' => $faker->name,
-        'category_id' => $faker->numberBetween(1,11),
-//        'category_id' => function () { return factory(App\Models\Categories::class)->create()->id; },
-//        'category_type' => function (array $category) {
-//            return App\Models\Categories::find($category['category_id'])->type;
-//        },
+        'teacher' => $faker->numberBetween(1,131),
+        'category' => $faker->numberBetween(1,11),
+        'duration'=> $faker->numberBetween(10,400),
+        'students_max'=> $faker->numberBetween(20,40),
+        'price'=> $faker->numberBetween(50,300),
+        'start' => Faker\Provider\DateTime::dateTimeBetween($startDate = '-6 month', $endDate = '+6 month', $timezone = null),
         'remember_token' => str_random(10),
     ];
 });

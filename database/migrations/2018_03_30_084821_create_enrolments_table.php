@@ -19,6 +19,7 @@ class CreateEnrolmentsTable extends Migration
             $table->integer('subject')->unsigned();
             $table->integer('paid', false, true);
             $table->timestamps();
+            $table->rememberToken();
             $table->softDeletes();
             $table->foreign('student')->references('id')->on('users');
             $table->foreign('subject')->references('id')->on('subjects');

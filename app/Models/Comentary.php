@@ -23,7 +23,8 @@ class Comentary extends Model
     public $fillable = [
         'name',
         'content',
-        'post_id'
+        'post_id',
+        'user_id'
     ];
 
     /**
@@ -34,7 +35,8 @@ class Comentary extends Model
     protected $casts = [
         'name' => 'string',
         'content' => 'string',
-        'post_id' => 'integer'
+        'post_id' => 'integer',
+        'user_id' => 'integer'
     ];
 
     /**
@@ -45,7 +47,8 @@ class Comentary extends Model
     public static $rules = [
         'name' => 'required',
         'content' => 'required',
-        'post_id' => 'required'
+        'post_id' => 'required',
+        'user_id' => 'integer'
     ];
 
     

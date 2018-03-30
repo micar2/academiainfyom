@@ -22,7 +22,7 @@ class Document extends Model
 
     public $fillable = [
         'name',
-        'tipe',
+        'type',
         'visibility',
         'content',
         'category',
@@ -36,7 +36,7 @@ class Document extends Model
      */
     protected $casts = [
         'name' => 'string',
-        'tipe' => 'string',
+        'type' => 'string',
         'visibility' => 'string',
         'content' => 'string',
         'category' => 'integer',
@@ -50,7 +50,7 @@ class Document extends Model
      */
     public static $rules = [
         'name' => 'required',
-        'tipe' => 'required',
+        'type' => 'required',
         'visibility' => 'required',
         'content' => 'required',
         'category' => 'required',

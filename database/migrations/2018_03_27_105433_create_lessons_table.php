@@ -19,6 +19,7 @@ class CreateLessonsTable extends Migration
             $table->string('hour', 20);
             $table->integer('subject')->unsigned();
             $table->timestamps();
+            $table->rememberToken();
             $table->softDeletes();
             $table->foreign('subject')->references('id')->on('subjects');
         });

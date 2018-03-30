@@ -16,13 +16,14 @@ class CreateSubjectsTable extends Migration
         Schema::create('subjects', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('teacher')->unsigned();
-            $table->string('name',20);
+            $table->string('name');
             $table->integer('category')->unsigned();
             $table->string('start', 20);
             $table->string('duration', 20);
             $table->string('students_max', 10);
             $table->string('price', 10);
             $table->timestamps();
+            $table->rememberToken();
             $table->softDeletes();
             $table->foreign('teacher')->references('id')->on('users');
             $table->foreign('category')->references('id')->on('categories');
