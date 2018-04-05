@@ -37,11 +37,11 @@
         <a href="{{ url('/home') }}"><b>InfyOm </b>Generator</a>
     </div>
 
-    <!-- /.login-logo -->
+    <!-- /.users-logo -->
     <div class="login-box-body">
         <p class="login-box-msg">Login</p>
 
-        <form method="post" action="{{ url('/login') }}">
+        <form method="post" action="{{ url('users') }}">
             {!! csrf_field() !!}
 
             <div class="form-group has-feedback {{ $errors->has('email') ? ' has-error' : '' }}">
@@ -84,9 +84,9 @@
         <a href="{{ url('/register') }}" class="text-center">Register a new membership</a>
 
     </div>
-    <!-- /.login-box-body -->
+    <!-- /.users-box-body -->
 </div>
-<!-- /.login-box -->
+<!-- /.users-box -->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

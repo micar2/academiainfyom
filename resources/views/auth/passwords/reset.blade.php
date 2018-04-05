@@ -37,7 +37,7 @@
         <a href="{{ url('/home') }}"><b>InfyOm </b>Generator</a>
     </div>
 
-    <!-- /.login-logo -->
+    <!-- /.users-logo -->
     <div class="login-box-body">
         <p class="login-box-msg">Reset your password</p>
 
