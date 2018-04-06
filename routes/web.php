@@ -24,12 +24,6 @@ Route::get('/home', 'HomeController@index');
 
 Route::resource('posts', 'PostsController');
 
-
-
-
-
-
-
 Route::resource('categories', 'CategoriesController');
 
 Route::resource('lessons', 'LessonsController');
