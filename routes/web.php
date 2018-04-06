@@ -12,26 +12,17 @@
 */
 
 Route::get('/', function () {
-  return redirect('welcome');
+  return redirect('home');
 });
 
-Route::get('welcome', 'WelcomeController@index')->name('welcome');
 
 Auth::routes();
 
-Route::group(['prefix'=>'admin',
-    'middleware'=>'auth'],
-    function (){
+Route::get('/home', 'HomeController@index');
 
 
 
-
-        Route::get('/', 'HomeController@index');
-
-
-
-
-        Route::resource('posts', 'PostsController');
+Route::resource('posts', 'PostsController');
 
 
 
@@ -39,15 +30,14 @@ Route::group(['prefix'=>'admin',
 
 
 
-        Route::resource('categories', 'CategoriesController');
+Route::resource('categories', 'CategoriesController');
 
-        Route::resource('lessons', 'LessonsController');
+Route::resource('lessons', 'LessonsController');
 
-        Route::resource('subjects', 'SubjectController');
+Route::resource('subjects', 'SubjectController');
 
-        Route::resource('comentaries', 'ComentaryController');
+Route::resource('comentaries', 'ComentaryController');
 
-        Route::resource('documents', 'DocumentController');
+Route::resource('documents', 'DocumentController');
 
-        Route::resource('enrolments', 'EnrolmentController');
-    });
+Route::resource('enrolments', 'EnrolmentController');

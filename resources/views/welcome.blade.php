@@ -1,95 +1,95 @@
-@extends('layouts.layout')
-@section('content')
-    <!-- Portfolio Grid Section -->
-    <section class="portfolio" id="portfolio">
-        <div class="container">
-            <h2 class="text-center text-uppercase text-secondary mb-0">Portfolio</h2>
-            <hr class="star-dark mb-5">
-            <div class="row">
-                <div class="col-md-6 col-lg-4">
-                    <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-1">
-                        <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
-                            <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img class="img-fluid" src="img/portfolio/cabin.png" alt="">
-                    </a>
+<!doctype html>
+<html lang="{{ config('app.locale') }}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Laravel</title>
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+
+        <!-- Styles -->
+        <style>
+            html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Raleway', sans-serif;
+                font-weight: 100;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .full-height {
+                height: 100vh;
+            }
+
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .position-ref {
+                position: relative;
+            }
+
+            .top-right {
+                position: absolute;
+                right: 10px;
+                top: 18px;
+            }
+
+            .content {
+                text-align: center;
+            }
+
+            .title {
+                font-size: 84px;
+            }
+
+            .links > a {
+                color: #636b6f;
+                padding: 0 25px;
+                font-size: 12px;
+                font-weight: 600;
+                letter-spacing: .1rem;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+
+            .m-b-md {
+                margin-bottom: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="flex-center position-ref full-height">
+            @if (Route::has('login'))
+                <div class="top-right links">
+                    @if (Auth::check())
+                        <a href="{{ url('/home') }}">Home</a>
+                    @else
+                        <a href="{{ url('/login') }}">Login</a>
+                        <a href="{{ url('/register') }}">Register</a>
+                    @endif
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-2">
-                        <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
-                            <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img class="img-fluid" src="img/portfolio/cake.png" alt="">
-                    </a>
+            @endif
+
+            <div class="content">
+                <div class="title m-b-md">
+                    Laravel
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-3">
-                        <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
-                            <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img class="img-fluid" src="img/portfolio/circus.png" alt="">
-                    </a>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-4">
-                        <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
-                            <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img class="img-fluid" src="img/portfolio/game.png" alt="">
-                    </a>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-5">
-                        <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
-                            <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img class="img-fluid" src="img/portfolio/safe.png" alt="">
-                    </a>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-6">
-                        <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
-                            <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img class="img-fluid" src="img/portfolio/submarine.png" alt="">
-                    </a>
+
+                <div class="links">
+                    <a href="https://laravel.com/docs">Documentation</a>
+                    <a href="https://laracasts.com">Laracasts</a>
+                    <a href="https://laravel-news.com">News</a>
+                    <a href="https://forge.laravel.com">Forge</a>
+                    <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="bg-primary text-white mb-0" id="about">
-        <div class="container">
-            <h2 class="text-center text-uppercase text-white">About</h2>
-            <hr class="star-light mb-5">
-            <div class="row">
-                <div class="col-lg-4 ml-auto">
-                    <p class="lead">Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.</p>
-                </div>
-                <div class="col-lg-4 mr-auto">
-                    <p class="lead">Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
-                </div>
-            </div>
-            <div class="text-center mt-4">
-                <a class="btn btn-xl btn-outline-light" href="#">
-                    <i class="fa fa-download mr-2"></i>
-                    Download Now!
-                </a>
-            </div>
-        </div>
-    </section>
-
-@endsection
+    </body>
+</html>
