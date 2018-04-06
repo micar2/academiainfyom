@@ -19,6 +19,8 @@ Route::get('welcome', 'WelcomeController@index')->name('welcome');
 
 Auth::routes();
 
+Route::get('users', 'Auth\LoginController@showLoginForm')->name('login');
+
 Route::group(['prefix'=>'admin',
     'middleware'=>'auth'],
     function (){
