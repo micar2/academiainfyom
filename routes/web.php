@@ -17,25 +17,25 @@ Route::get('/', function () {
 
 Route::get('welcome', 'WelcomeController@index')->name('welcome');
 
-Route::get('student.register', 'WelcomeController@register')->name('student.register');
-
-Route::get('student.create', 'WelcomeController@create')->name('student.create');
-
-Route::get('student.login', 'WelcomeController@login')->name('student.login');
-Route::post('student.intro', 'WelcomeController@intro')->name('student.intro');
-
-Route::get('student.store', 'WelcomeController@store')->name('student.store');
-
-Route::post('student.logout', 'Auth\LoginController@logout')->name('student.logout');
+//Route::get('student.register', 'WelcomeController@register')->name('student.register');
+//
+//Route::get('student.create', 'WelcomeController@create')->name('student.create');
+//
+//Route::get('student.login', 'WelcomeController@login')->name('student.login');
+//Route::post('student.intro', 'WelcomeController@intro')->name('student.intro');
+//
+//Route::get('student.store', 'WelcomeController@store')->name('student.store');
+//
+//Route::post('student.logout', 'Auth\LoginController@logout')->name('student.logout');
 
 
 
 
 Auth::routes();
 
-Route::group(['prefix'=>'admin',
-    'middleware'=>'auth'],
-    function (){
+//Route::group(['prefix'=>'admin/',
+//    'middleware'=>'auth'],
+//    function (){
 
         Route::get('/', 'HomeController@index');
 
@@ -52,4 +52,4 @@ Route::group(['prefix'=>'admin',
         Route::resource('documents', 'DocumentController');
 
         Route::resource('enrolments', 'EnrolmentController');
-    });
+//    });
