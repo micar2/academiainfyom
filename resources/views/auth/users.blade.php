@@ -41,7 +41,7 @@
     <div class="login-box-body">
         <p class="login-box-msg">Login</p>
 
-        <form method="post" action="{{ url('users') }}">
+        <form method="post" action="{{ url('login') }}">
             {!! csrf_field() !!}
 
             <div class="form-group has-feedback {{ $errors->has('email') ? ' has-error' : '' }}">

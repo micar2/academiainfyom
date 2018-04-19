@@ -2,6 +2,7 @@
 
 namespace App;
 
+
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -57,5 +58,10 @@ class User extends Authenticatable
     public function resolveRouteBinding($value)
     {
         // TODO: Implement resolveRouteBinding() method.
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(\App\Models\Posts::class);
     }
 }

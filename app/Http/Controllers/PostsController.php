@@ -12,6 +12,8 @@ use App\Models\Categories;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
+
+
 class PostsController extends AppBaseController
 {
     /** @var  PostsRepository */
@@ -30,9 +32,18 @@ class PostsController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $this->postsRepository->pushCriteria(new RequestCriteria($request));
-        $posts = $this->postsRepository->all();
-        $categories = Categories::all('id', 'route');
+
+        if (auth()->user()->hasRole('Admin')){
+            $this->postsRepository->pushCriteria(new RequestCriteria($request));
+            $posts = $this->postsRepository->all();
+            $categories = Categories::all('id', 'route');
+
+        }else{
+            $this->postsRepository->pushCriteria(new RequestCriteria($request));
+            $posts = auth()->user()->posts;
+            $categories = Categories::all('id', 'route');
+        }
+
         return view('posts.index',['posts'=> $posts, 'categories'=> $categories]);
     }
 

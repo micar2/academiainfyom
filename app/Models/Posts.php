@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Mini\Model\User;
 
 /**
  * Class Posts
@@ -50,5 +51,8 @@ class Posts extends Model
         'user_id' => 'required'
     ];
 
-    
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

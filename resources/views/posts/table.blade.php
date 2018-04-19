@@ -7,6 +7,7 @@
         <th colspan="3">Action</th>
     </thead>
     <tbody>
+    @if($posts && $categories && isset($posts) && isset($categories))
     @foreach($posts as $posts)
         <tr>
             <td>{!! $posts->title !!}</td>
@@ -28,5 +29,14 @@
             </td>
         </tr>
     @endforeach
+        @else
+    <tr>
+        <td>no</td>
+        <td>tienes</td>
+        <td>ningun</td>
+        <td>post</td>
+        <td>escrito</td>
+    </tr>
+        @endif
     </tbody>
 </table>
