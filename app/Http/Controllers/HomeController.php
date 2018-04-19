@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 class HomeController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+//    public function __construct()
+//    {
+//        $this->middleware('auth');
+//    }
 
     /**
      * Show the application dashboard.
@@ -15,7 +15,15 @@ class HomeController extends Controller
      */
     public function index()
     {
+        if (auth()->user()){
+            if (auth()->user()->hasRole('Admin')){
+                return view('/home');
+            }else{
+                return view('/welcome');
+            }
+        }else{
+            return view('/welcome');
+        }
 
-        return view('home');
     }
 }

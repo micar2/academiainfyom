@@ -7,7 +7,7 @@ use App\Http\Requests\UpdatePostsRequest;
 use App\Repositories\PostsRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
-use Flash;
+use Laracasts\Flash\Flash;
 use App\Models\Categories;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\User;
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -48,5 +49,15 @@ class Enrolment extends Model
         'paid' => 'required'
     ];
 
-    
+    public function subject()
+    {
+        return $this->belongsTo(Subject::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+
 }
