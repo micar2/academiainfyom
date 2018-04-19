@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateLessonsRequest;
 use App\Http\Requests\UpdateLessonsRequest;
+use App\Models\Lessons;
+use App\Models\Subject;
 use App\Repositories\LessonsRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
@@ -29,8 +31,22 @@ class LessonsController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $this->lessonsRepository->pushCriteria(new RequestCriteria($request));
-        $lessons = $this->lessonsRepository->all();
+        if (auth()->user()->hasRole('Admin')){
+            $this->lessonsRepository->pushCriteria(new RequestCriteria($request));
+            $lessons = $this->lessonsRepository->all();
+
+        }else{
+
+            $this->lessonsRepository->pushCriteria(new RequestCriteria($request));
+            $subjects= Subject::where('teacher', auth()->user()->id)->get();
+       foreach ($subjects as $subject){
+           $lessonsAlls = Lessons::where('subject', $subject->id)->get();
+            foreach ($lessonsAlls as $lessonsAll){
+                $lessons[]= $lessonsAll;
+            }
+       }
+        }
+
 
         return view('lessons.index')
             ->with('lessons', $lessons);

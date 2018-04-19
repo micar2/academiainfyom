@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\User;
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -52,6 +53,20 @@ class Subject extends Model
     public static $rules = [
         'teacher' => 'required'
     ];
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
 
-    
+    public function lessons()
+    {
+        return $this->hasMany(Lessons::class);
+    }
+
+    public function enrolment()
+    {
+        return $this->hasMany(Enrolment::class);
+    }
+
+
 }

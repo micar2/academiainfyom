@@ -3,6 +3,9 @@
 namespace App;
 
 
+use App\Models\Enrolment;
+use App\Models\Subject;
+use \App\Models\Posts;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -62,6 +65,16 @@ class User extends Authenticatable
 
     public function posts()
     {
-        return $this->hasMany(\App\Models\Posts::class);
+        return $this->hasMany(Posts::class);
+    }
+
+    public function subjects()
+    {
+        return $this->hasMany(Subject::class);
+    }
+
+    public function enrolment()
+    {
+        return $this->hasMany(Enrolment::class);
     }
 }

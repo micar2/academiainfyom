@@ -48,5 +48,10 @@ class Lessons extends Model
         'subject' => 'required'
     ];
 
+    public function subject()
+    {
+        return $this->belongsTo(Subject::class);
+    }
+
     
 }
