@@ -51,3 +51,5 @@ Auth::routes();
 
         Route::resource('enrolments', 'EnrolmentController');
 //    });
+
+Route::get('blogs', 'BlogsController@index')->name('blog');

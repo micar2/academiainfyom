@@ -18,6 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->string('category');
             $table->text('content');
+            $table->string('view');
             $table->integer('user_id')->unsigned();
             $table->timestamps();
             $table->rememberToken();

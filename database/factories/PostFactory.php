@@ -1,5 +1,5 @@
 <?php
-
+use Faker\Provider\Base;
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -19,6 +19,7 @@ $factory->define(App\Models\Posts::class, function (Faker\Generator $faker) {
         'title' => $faker->name,
         'category' => function(){ return factory(App\Models\Categories::class)->create()->id; },
         'content' => $faker->paragraph,
+        'view' => $faker->randomElement($array = array ('private','public')),
         'user_id' => function () { return factory(App\User::class)->create()->id; },
         'remember_token' => str_random(10),
     ];
