@@ -19,6 +19,6 @@ class CategoriesTableSeeder extends Seeder
         ]);
 
 
-        factory(Categories::class, 10)->create();
+        factory(Categories::class, 2)->create();
     }
 }
