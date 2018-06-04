@@ -46,8 +46,31 @@ class Blog extends Model
             }
           }
 
+
+        //dd($menu);
+        return $menu;
+
+    }
+
+    public static function generateFirstMenu($table)
+    {
+        $categoriesPrimary = DB::table($table)->where([['category_id','=','1'],['id','!=','1']])->get();
+        return $categoriesPrimary;
+    }
+
+    public static function generateSecondMenu($table, $id)
+    {
+
+        $categoriesSecundary = DB::table($table)->where('category_id','=',$id)->get();
+
+        return $categoriesSecundary;
+    }
+
+
+
         dd($menu);
         return $menu;
 
     }
+
 }
